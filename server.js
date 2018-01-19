@@ -3,6 +3,8 @@
 
 // We're going to use the "Product Catalog and Orders" base template:
 // https://airtable.com/templates/featured/expZvMLT9L6c4yeBX/product-catalog-and-orders
+
+require('dotenv').config()
 var Airtable = require('airtable');
 var base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY,
@@ -51,7 +53,7 @@ app.get("/data", function(_, response) {
           }),
         };
         cachedResponseDate = new Date();
-        
+
         response.send(cachedResponse);
       }
     });
